@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from collections import OrderedDict
 
-dates = ["1900-1-1", "2050-12-31"]
+dates = ["2005-1-1", "2006-12-31"]
 
 def monthlist_short(dates):
     start, end = [datetime.strptime(_, "%Y-%m-%d") for _ in dates]
@@ -17,7 +17,7 @@ def monthlist_fast(dates):
         mlist.append(datetime(y, m+1, 1).strftime("%b-%y"))
     return mlist
 
-# assert monthlist_fast(dates) == monthlist_short(dates)
+assert monthlist_fast(dates) == monthlist_short(dates)
 
 if __name__ == "__main__":
     from timeit import Timer
